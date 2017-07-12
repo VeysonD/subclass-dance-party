@@ -3,6 +3,7 @@ body, html{
 }
 body{
   margin: 0px;
+  background: url("http://theologygaming.com/wp-content/uploads/2014/06/dance_dance_revolution_42642_6294_1.jpg");
   background-color:#444;
   font-size: 18px;
 }
@@ -20,8 +21,28 @@ body, a:link, a:visited, a:active{
 .title{
   background-color: #777;
 }
-.dancer{
-  border:10px solid red;
+.blinky-dancer{
+  position:absolute;
+}
+.blinky-dancer:hover{
+  border:20px solid red;
+}
+
+.shy-dancer{
+  border:10px solid green;
   border-radius:10px;
   position:absolute;
+}
+.shy-dancer:hover{
+  border:15px solid yellow;
+}
+.crazy-dancer{
+  position:absolute;
+}
+.crazy-dancer:hover{
+  transform: rotate(45deg);
+}
+.crazy-dancer.resize{
+  width:10%;
+  height:10%;
 }

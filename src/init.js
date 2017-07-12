@@ -1,5 +1,24 @@
 $(document).ready(function() {
   window.dancers = [];
+  /*
+  //not working
+  $('.blinky-dancer').on('click', function(event) {
+    console.log('running');
+    event.preventDefault();
+
+    var pos = $(this).offset().top;
+
+    $(this).animate({
+        top: pos + $(this).height()
+    }, 1000 );
+
+}); */
+  $('.lineUpDancers').on('click', function(event) {
+    for (var i = 0; i < window.dancers.length; i += 1) {
+      window.dancers[i].lineUp();
+    }
+  });
+
 
   $('.addDancerButton').on('click', function(event) {
     /* This function sets up the click handlers for the create-dancer
@@ -16,18 +35,17 @@ $(document).ready(function() {
      * to the stage.
      */
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
-
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
     // make a dancer with a random position
 
-    var dancer = dancerMakerFunction(
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
+    var dancer = new dancerMakerFunction(
+      $('body').height() * Math.random(),
+      $('body').width() * Math.random(),
       Math.random() * 1000
     );
+    window.dancers.push(dancer);
     $('body').append(dancer.$node);
   });
 });
-
